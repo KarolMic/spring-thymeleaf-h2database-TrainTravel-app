@@ -2,14 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Train App - Connections Management</title>
         <link type="text/css" href="/css/home.css" rel="stylesheet">
         <link type="text/css" href="/css/connectionsManagement.css" rel="stylesheet">
     </head>
     <body>
         <section>
             <header>
-                <h1 id="mainHeader">Train Connections Management App</h1>
+                <h1 id="mainHeader">Train App - Connections Management</h1>
                 <div id="nawigation">
                     <ul>
                         <li><a th:onclick="|window.location.href='/home'|">&#127968; Main Page</a></li>
@@ -58,9 +58,8 @@
                 </table>
             </div>
             <h2>Add new connection</h2>
-            <form id="grid" action="#" th:action="@{/flightConnection}" method="post">
+            <form id="grid" action="#" th:action="@{/trainConnection}" method="post">
                 <p>Choose Departure City:</p>
-<!--                <p><input type="text" name="departureCity" th:value="${departureCity}"/></p>-->
                 <p>
                     <select name="departureCity">
                         <option type="text" th:each="city : ${cities}"
@@ -68,16 +67,14 @@
                     </select>
                 </p>
                 <p>Choose Arrival City:</p>
-<!--                <p><input type="text" name="arrivalCity" th:value="${arrivalCity}"/></p>-->
                 <p>
                     <select name="arrivalCity">
                         <option type="text" th:each="city : ${cities}"
                                                         th:value="${city.name}" th:text="${city.name}">
                     </select>
                 </p>
-                <p>Choose Flight Date:</p>
-<!--                <p><input type="text" name="flightDate" th:value="${flightDate}"/></p>-->
-                <p><input type="datetime-local" name="flightDate" th:value="${transportDate}"/></p>
+                <p>Choose Transport Date:</p>
+                <p><input type="datetime-local" name="transportDate" th:value="${transportDate}"/></p>
                 <p id="submitButton"><input  type="submit" value="Submit" /></p>
             </form>
 

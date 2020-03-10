@@ -1,5 +1,6 @@
 body {
-    background-image: url("/img/flying-plane.jpg");
+    background-image: url("/img/train.jpg");
+    background-size: cover;
 }
 
 section {

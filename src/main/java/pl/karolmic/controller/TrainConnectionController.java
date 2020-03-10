@@ -63,12 +63,12 @@ public class TrainConnectionController {
         return "connectionsManagement.html";
     }
 
-    @RequestMapping(value="/flightConnection", method=RequestMethod.POST)
+    @RequestMapping(value="/trainConnection", method=RequestMethod.POST)
     public RedirectView addNewConnection(Model model, @RequestParam String departureCity, @RequestParam String arrivalCity,
-                                         @RequestParam String flightDate) {
+                                         @RequestParam String transportDate) {
         trainConnection.setDepartureCity(cityRepository.findByName(departureCity));
         trainConnection.setArrivalCity(cityRepository.findByName(arrivalCity));
-        trainConnection.setTransportDate(flightDate);
+        trainConnection.setTransportDate(transportDate);
         trainConnectionRepository.save(trainConnection);
         return new RedirectView("http://localhost:8080/connectionsManagement");
     }

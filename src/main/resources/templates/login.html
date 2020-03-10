@@ -2,24 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Train App - Login</title>
         <link type="text/css" href="/css/login.css" rel="stylesheet">
     </head>
     <body>
 
-        <div id="login-form">
-<!--            ${SPRING_SECURITY_LAST_EXCEPTION.message}-->
-            <form id="formularz" action="login" method='POST'>
-                <div id="sign-in">Sign in</div>
-                <div id="userInput">
-                    <input id="userName" type="text" placeholder="Enter Username" value="" name='username'/><br>
-                    <input id="userPw" type="password" placeholder="Enter Password" value="" name='password'/><br>
-                </div>
-                <!--                <input id="login_btn" type="submit" value="Login" onClick="check()"/>-->
-<!--                <button id="przycisk" onclick="signin()">Comfirm</button>-->
-                <input id="submit" name="submit" type="submit" value="submit"/>
-            </form>
-        </div>
+        <section>
+            <div id="login-form">
+                <!--            ${SPRING_SECURITY_LAST_EXCEPTION.message}-->
+                <form id="formularz" action="login" method='POST'>
+                    <div id="sign-in">Sign in</div>
+                    <div id="userInput">
+                        <input id="userName" type="text" placeholder="Enter Username" value="" name='username'/><br>
+                        <input id="userPw" type="password" placeholder="Enter Password" value="" name='password'/><br>
+                    </div>
+                    <!--                <input id="login_btn" type="submit" value="Login" onClick="check()"/>-->
+                    <!--                <button id="przycisk" onclick="signin()">Comfirm</button>-->
+                    <input id="submit" name="submit" type="submit" value="submit"/>
+                </form>
+            </div>
+        </section>
         
     </body>
 </html>
