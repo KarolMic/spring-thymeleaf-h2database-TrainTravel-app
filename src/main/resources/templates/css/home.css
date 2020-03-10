@@ -1,0 +1,62 @@
+body {
+    background-image: url("/img/flying-plane.jpg");
+}
+
+section {
+    width: 800px;
+}
+
+#mainHeader {
+    background-color: mediumblue;
+    color: yellow;
+    padding: 10px;
+    margin-bottom: -5px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+#scrollingTable {
+    height: 200px;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: orange;
+}
+
+h2 {
+    text-align: center;
+    background-color: green;
+    padding: 5px;
+    margin-bottom: -5px;
+}
+
+#citySearch {
+    margin: 5px;
+    background-color: green;
+    padding: 5px;
+}

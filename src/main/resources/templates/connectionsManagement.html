@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link type="text/css" href="/css/home.css" rel="stylesheet">
+        <link type="text/css" href="/css/connectionsManagement.css" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <header>
+                <h1 id="mainHeader">Train Connections Management App</h1>
+                <div id="nawigation">
+                    <ul>
+                        <li><a th:onclick="|window.location.href='/home'|">&#127968; Main Page</a></li>
+                        <li><a th:onclick="|window.location.href='/connectionsManagement'|">
+                            &#128736; Connections management</a></li>
+                        <li id="logOutButton"><a th:onclick="|window.location.href='/logout'|">
+                            &#128683; Log out</a></li>
+                        <li id="loggedUser"><span th:text="${loggedUser}"></span></li>
+                    </ul>
+                </div>
+            </header>
+
+            <h2>All available connections</h2>
+
+            <div id="scrollingTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Departure City </th>
+                            <th> Arrival City </th>
+                            <th> Transport Date </th>
+                            <th> Delete </th>
+                            <th> Update </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${connections.empty}">
+                            <td colspan="2"> No Connections Available </td>
+                        </tr>
+                        <tr th:each="connection : ${connections}">
+                            <td><span th:text="${connection.id}"> Id </span></td>
+                            <td><span th:text="${connection.departureCity}"> Departure City </span></td>
+                            <td><span th:text="${connection.arrivalCity}"> Arrival City </span></td>
+                            <td><span th:text="${connection.transportDate}"> Name </span></td>
+                            <td><form th:action="@{/deleteConnection}" method="post">
+                                <button name="id" th:value="${connection.id}">&#128465;</button>
+                            </form>
+                           </td>
+                            <td><form th:action="@{/updateConnection}" method="post">
+                                <button name="id" th:value="${connection.id}">&#128295;</button>
+                            </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>Add new connection</h2>
+            <form id="grid" action="#" th:action="@{/flightConnection}" method="post">
+                <p>Choose Departure City:</p>
+<!--                <p><input type="text" name="departureCity" th:value="${departureCity}"/></p>-->
+                <p>
+                    <select name="departureCity">
+                        <option type="text" th:each="city : ${cities}"
+                                   th:value="${city.name}" th:text="${city.name}">
+                    </select>
+                </p>
+                <p>Choose Arrival City:</p>
+<!--                <p><input type="text" name="arrivalCity" th:value="${arrivalCity}"/></p>-->
+                <p>
+                    <select name="arrivalCity">
+                        <option type="text" th:each="city : ${cities}"
+                                                        th:value="${city.name}" th:text="${city.name}">
+                    </select>
+                </p>
+                <p>Choose Flight Date:</p>
+<!--                <p><input type="text" name="flightDate" th:value="${flightDate}"/></p>-->
+                <p><input type="datetime-local" name="flightDate" th:value="${transportDate}"/></p>
+                <p id="submitButton"><input  type="submit" value="Submit" /></p>
+            </form>
+
+        </section>
+
+    </body>
+</html>

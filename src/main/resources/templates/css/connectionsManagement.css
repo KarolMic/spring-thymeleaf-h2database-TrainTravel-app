@@ -1,0 +1,29 @@
+#grid {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    background-color: yellow;
+    margin: auto;
+    grid-template-rows: 30px 30px 35px 30px;
+    height: 140px;
+}
+
+#submitButton {
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+#loggedUser {
+    float: right;
+}
+
+#logOutButton {
+    float: right;
+}
+
+li span {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}

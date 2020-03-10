@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link type="text/css" href="/css/home.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <section>
+            <header>
+                <h1 id="mainHeader">Flight App</h1>
+                <div id="nawigation">
+                    <ul>
+                        <li><a th:onclick="|window.location.href='/home'|">&#127968; Main Page</a></li>
+                        <li><a th:onclick="|window.location.href='/connectionsManagement'|">
+                            &#128736; Connections management</a></li>
+                    </ul>
+                </div>
+            </header>
+
+        </section>
+
+        <section>
+            <h2>All available cities:</h2>
+            <div id="scrollingTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Name </th>
+                            <th> Creation_date </th>
+                            <th> User_id </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${cities.empty}">
+                            <td colspan="2"> No Cities Available </td>
+                        </tr>
+                        <tr th:each="city : ${cities}">
+                            <td><span th:text="${city.city_id}"> Id </span></td>
+                            <td><span th:text="${city.name}"> Name </span></td>
+                            <td><span th:text="${city.creation_date}"> Creation date </span></td>
+                            <td><span th:text="${city.user_id}"> User Id </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <form id="citySearch" th:action="@{/searchedConnections}" method="post">
+                <p>Search for flight:
+                    <input id="cityName" type="text" placeholder="Enter City name"
+                           name="cityName" th:value="${cityName}"/>
+                           <input type="submit" value="Submit" /></p>
+            </form>
+
+        </section>
+
+    </body>
+</html>

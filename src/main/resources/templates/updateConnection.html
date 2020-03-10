@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link type="text/css" href="/css/home.css" rel="stylesheet">
+        <link type="text/css" href="/css/connectionsManagement.css" rel="stylesheet">
+        <link type="text/css" href="/css/updateConnection.css" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <header>
+                <h1 id="mainHeader">Train Connections Management App - connections management</h1>
+                <div id="nawigation">
+                    <ul>
+                        <li><a th:onclick="|window.location.href='/home'|">&#127968; Main Page</a></li>
+                        <li><a th:onclick="|window.location.href='/connectionsManagement'|">
+                            &#128736; Connections management</a></li>
+                        <li id="logOutButton"><a th:onclick="|window.location.href='/logout'|">
+                            &#128683; Log out</a></li>
+                        <li id="loggedUser"><span th:text="${loggedUser}"></span></li>
+                    </ul>
+                </div>
+            </header>
+
+            <h2>Modify existing connection</h2>
+            <form id="grid" action="#" th:action="@{/editConnection}" method="post">
+                <p></p>
+                <h3>Before</h3>
+                <h3>After</h3>
+                <p>Id:</p>
+                <p><input type="text" th:placeholder="${connection.id}" readonly/></p>
+<!--                <p name="id" type="text" th:text="${connection.id}" th:value="${connection.id}"></p>-->
+                <p><input type="text" name="id" th:placeholder="${connection.id}" th:value="${connection.id}" readonly/></p>
+                <p>Departure City:</p>
+                <p><input th:placeholder="${connection.departureCity}"></p>
+                <p>
+                    <select name="departureCity"><option type="text" th:each="city : ${cities}"
+                                                        th:value="${city.name}" th:text="${city.name}">
+                    </select>
+                </p>
+                <p>Arrival City:</p>
+                <p><input th:placeholder="${connection.arrivalCity}" readonly></p>
+                <p>
+                    <select name="arrivalCity">
+                        <option type="text" th:each="city : ${cities}"
+                            th:value="${city.name}" th:text="${city.name}">
+                    </select>
+                </p>
+                <p>Train Connection Date:</p>
+                <p><input th:placeholder="${connection.transportDate}" readonly></p>
+                <p><input type="datetime-local" name="flightDate" th:value="${transportDate}"/></p>
+                <p id="submitButton"><input type="submit" value="Submit" /></p>
+            </form>
+        </section>
+    </body>
+</html>

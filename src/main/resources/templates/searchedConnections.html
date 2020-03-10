@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link type="text/css" href="/css/home.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <section>
+            <header>
+                <h1 id="mainHeader">Train Connections Management App - searched connections</h1>
+                <div id="nawigation">
+                    <ul>
+                        <li><a th:onclick="|window.location.href='/home'|">&#127968; Main Page</a></li>
+                        <li><a th:onclick="|window.location.href='/connectionsManagement'|">
+                            &#128736; Connections management</a></li>
+                    </ul>
+                </div>
+            </header>
+            <h2>All connections which includes <span th:text="${cityName}"> City Name </span> city:</h2>
+            <div id="scrollingTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Departure City </th>
+                            <th> Arrival City </th>
+                            <th> Train Connection Date </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${connections.empty}">
+                            <td colspan="2"> No Connections Available </td>
+                        </tr>
+                        <tr th:each="connection : ${connections}">
+                            <td><span th:text="${connection.id}"> Id </span></td>
+                            <td><span th:text="${connection.departureCity}"> Departure City </span></td>
+                            <td><span th:text="${connection.arrivalCity}"> Arrival City </span></td>
+                            <td><span th:text="${connection.transportDate}"> Name </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </body>
+</html>

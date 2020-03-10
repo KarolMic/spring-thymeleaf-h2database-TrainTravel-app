@@ -1,0 +1,30 @@
+body {
+    background-image: url("/img/security-gate.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#login-form {
+    background-color: red;
+    width: 200px;
+    margin-left: 570px;
+    margin-top: 320px;
+    position: fixed;
+}
+
+#sign-in {
+    background-color: yellow;
+    color: black;
+    text-align: center;
+}
+
+#userInput {
+    text-align: center;
+}
+
+
+#submit {
+    margin: auto;
+    display: block;
+}
