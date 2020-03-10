@@ -1,10 +1,10 @@
-package repository;
+package pl.karolmic.repository;
 
-import model.City;
-import model.TrainConnection;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.QueryByExampleExecutor;
 import org.springframework.transaction.annotation.Transactional;
+import pl.karolmic.model.City;
+import pl.karolmic.model.TrainConnection;
 
 import java.util.List;
 

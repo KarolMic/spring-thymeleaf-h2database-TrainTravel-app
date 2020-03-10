@@ -1,8 +1,8 @@
-package model;
+package pl.karolmic.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import repository.SimpleCityRepository;
+import pl.karolmic.repository.SimpleCityRepository;
 
 @Component
 public class TrainConnectionBuilder {

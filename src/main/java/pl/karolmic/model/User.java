@@ -1,5 +1,5 @@
 
-package model;
+package pl.karolmic.model;
 
 import javax.persistence.*;
 import java.util.List;
